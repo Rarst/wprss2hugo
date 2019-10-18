@@ -1,6 +1,9 @@
 # wprss2hugo — WordPress to Hugo importer
 _Go static. Hugo static._
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Rarst/wprss2hugo/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Rarst/wprss2hugo/?branch=master)
+![Packagist Version](https://img.shields.io/packagist/v/Rarst/wprss2hugo)
+![PHP from Packagist](https://img.shields.io/packagist/php-v/Rarst/wprss2hugo)
 [![PDS Skeleton](https://img.shields.io/badge/pds-skeleton-blue.svg)](https://github.com/php-pds/skeleton)
 
 wprss2hugo is an importer from the [WordPress](https://wordpress.org/) eXtended RSS export file format to the [Hugo](https://gohugo.io/) static site generator.
