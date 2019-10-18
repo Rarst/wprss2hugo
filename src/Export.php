@@ -30,7 +30,7 @@ class Export implements \Iterator
     public function __construct(string $file)
     {
         $this->size     = filesize($file);
-        $stream         = new File($file, 16384, function ($chunk, $readBytes) {
+        $stream         = new File($file, 16384, function (string $chunk, int $readBytes) {
             $this->bytes = $readBytes;
         });
         $parser         = new StringWalker([
