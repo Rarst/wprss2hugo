@@ -1,0 +1,33 @@
+{
+    "name": "rarst/wprss2hugo",
+    "description": "WordPress eXtended RSS to Hugo Import",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Savchenko",
+            "homepage": "https://www.rarst.net/"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "ext-libxml": "*",
+        "ext-simplexml": "*",
+        "ext-json": "*",
+        "mnapoli/silly": "^1.7",
+        "prewk/xml-string-streamer": "^0.11.0",
+        "symfony/yaml": "^4.3",
+        "league/html-to-markdown": "^4.8",
+        "symfony/filesystem": "^4.3",
+        "pimple/pimple": "^3.2",
+        "yosymfony/toml": "^1.0"
+    },
+    "require-dev": {
+        "pds/skeleton": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rarst\\Hugo\\wprss2hugo\\": "src/"
+        }
+    }
+}
