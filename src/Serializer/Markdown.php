@@ -17,7 +17,15 @@ class Markdown implements Content
     {
         $converter = new HtmlConverter(['header_style' => 'atx']);
 
-        return $converter->convert($input);
+        // Override HTML comments handling to preserve 'more' tags.
+        $environment = $converter->getEnvironment();
+        $environment->addConverter(new CommentConverter());
+
+        $markdown = $converter->convert($input);
+        // Ends up with prepended slash for whatever reason...
+        $markdown = str_replace('\<!--more-->', '<!--more-->', $markdown);
+
+        return $markdown;
     }
 
     /**
