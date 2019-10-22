@@ -66,8 +66,6 @@ class Storage implements Write
                 $suffix = PHP_EOL;
         }
 
-        $this->makeIndex(dirname($path));
-
         if (false === stripos($content, '<p>')) { // Lacks wpautop() paragraphs.
             $content = nl2br($content);
         }

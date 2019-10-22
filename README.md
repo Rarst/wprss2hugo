@@ -51,7 +51,7 @@ _Note:_ TOML format is not meant for data, data files in TOML will have the data
 Source | Destination
 -|-
 site title, URL, description | `config.[data type]`
-posts, pages, attachments, custom post types | `content/[post type]/[slug].[content type]` or `content/[post type]/[slug]/_index.[content type]` for hierarchical 
+posts, pages, attachments, custom post types | `content/[post type]/[slug].[content type]` 
 tags, categories, formats, terms | `content/[taxonomy]/[term]/_index.[content type]`
 authors | `content/authors/[login]/_index.[content type]` (taxonomy)
 comments | `data/comments/[post ID].[data type]`

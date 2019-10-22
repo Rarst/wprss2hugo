@@ -8,12 +8,6 @@ namespace Rarst\Hugo\wprss2hugo\Handler;
  */
 class Post extends Node
 {
-    /** @var array<int,string> */
-    private $paths = [];
-
-    /** @var \SimpleXMLElement[] */
-    private $children = [];
-
     /**
      * Handle `item` XML node with a post entry.
      */
@@ -25,37 +19,12 @@ class Post extends Node
             return;
         }
 
-        $slug     = ((string)$node->post_name) ?: (string)$node->title;
-        $path     = "content/{$type}/{$slug}";
-        $parentId = (int)$node->post_parent;
+        $slug = ((string)$node->post_name) ?: (string)$node->title;
 
-        // If we have a parent we either stash until it's in place or append to its path.
-        if (0 !== $parentId && 'attachment' !== $type) {
-
-            if (!isset($this->paths[$parentId])) {
-
-                $this->children[$parentId][] = $node;
-                return;
-            }
-
-            $path = "{$this->paths[$parentId]}/{$slug}";
-        }
-
-        $id = (int)$node->post_id;
-
-        $this->store->content($path, $this->frontMatter($node), (string)$node->content);
-        $this->paths[$id] = $path;
-
-        if (isset($this->children[$id])) {
-
-            foreach ($this->children[$id] as $child) {
-                $this->handle($child);
-            }
-            unset($this->children[$id]);
-        }
+        $this->store->content("content/{$type}/{$slug}", $this->frontMatter($node), (string)$node->content);
 
         if (0 !== count($node->comment)) {
-            $this->store->data("data/comments/{$id}", $this->comments($node->comment));
+            $this->store->data("data/comments/{$node->post_id}", $this->comments($node->comment));
         }
     }
 
