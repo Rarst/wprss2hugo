@@ -6,10 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-## Changed
+## 0.2 - 2019-10-22
+
+### Changed
 - to not nesting hierarchical posts to have them behave as single, not section; hierarchical URLs are preserved via front matter
 
-## Fixed
+### Fixed
 - preserving 'more' tags in converted markdown 
 
 ## 0.1 - 2019-10-18
