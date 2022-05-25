@@ -83,7 +83,7 @@ Comments are stored as data files and can be retrieved by a parent post ID:
     {{ with index . (string $.Page.Params.id) }}
         <h2>Comments</h2>
         <ul>
-            {{ range . }}
+            {{ range sort . "id" }}
                 <li>{{ .author }} says: {{ .content | safeHTML }}</li>
             {{ end }}
         </ul>
